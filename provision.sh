@@ -12,4 +12,6 @@ a2dissite default
 a2ensite wordpress
 a2enmod rewrite
 
+cp /vagrant/httpd.conf /etc/apache2/httpd.conf
+
 service apache2 restart
