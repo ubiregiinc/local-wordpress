@@ -59,3 +59,18 @@ Update `wordpress.conf` file and run the following command to apply it.
 ```
 $ vagrant provision
 ```
+
+## Notes
+
+### Make sure your database server to accept connection from other hosts
+
+The MySQL server should have an user account from other hosts.
+
+```mysql
+GRANT ALL ON *.* TO 'root'@'%';
+```
+
+The MySQL server itself should accept connect(2) from other hosts.
+
+* `bind-address` should be `*` instead of `127.0.0.1` (the default)
+* Edit your `my.cnf`, or specify the value from command line which starts mysql-server
